@@ -23,4 +23,11 @@ describe('String Calculator', () => {
     });
   });
 
+    // ---------Test for Any Amount Of Number--------
+    describe('Multiple Numbers', () => {
+      test('handle any amount of numbers', () => {
+        expect(calculator.add("1,2,3,4,5")).toBe(15);
+        expect(calculator.add("1,2,3,4,5,6,7,8,9,10")).toBe(55);
+      });
+    });
 });
