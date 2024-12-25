@@ -39,4 +39,18 @@ describe('String Calculator', () => {
         expect(calculator.add("1\n2\n3")).toBe(6);
       });
     });
+    
+    // ------Support different delimiters--------
+    describe('Custom Delimiters', () => {
+      test('support custom delimiter with //', () => {
+        expect(calculator.add("//;\n1;2")).toBe(3);
+        expect(calculator.add("//$\n1$2$3")).toBe(6);
+        expect(calculator.add("//@\n2@3@4")).toBe(9);
+      });
+  
+      test('still support default delimiters with custom delimiter', () => {
+        expect(calculator.add("//;\n1;2\n3")).toBe(6);
+        expect(calculator.add("//;\n1;2,3")).toBe(6);
+      });
+    });
 });
